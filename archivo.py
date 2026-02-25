@@ -328,7 +328,7 @@ def mostrar_historial():
     print("="*70)
     
     if not historial:
-        print("\n📭 El historial está vacío.")
+        print("\nEl historial está vacío.")
     else:
         print(f"\nTotal de operaciones: {len(historial)}\n")
         for indice, operacion in enumerate(historial, 1):
@@ -381,7 +381,7 @@ def cargar_historial_archivo():
                     if linea_limpia:  # Solo agregar si la línea no está vacía
                         historial.append(linea_limpia)
         except Exception as e:
-            print(f"⚠️ Error al cargar historial: {e}")
+            print(f"Error al cargar historial: {e}")
 
 
 # ============================================
@@ -403,7 +403,7 @@ def validar_numero(mensaje):
             numero = float(input(mensaje))
             return numero
         except ValueError:
-            print("❌ Error: Ingrese un número válido.")
+            print("Error: Ingrese un número válido.")
 
 
 def validar_numero_entero(mensaje):
@@ -421,7 +421,7 @@ def validar_numero_entero(mensaje):
             numero = int(input(mensaje))
             return numero
         except ValueError:
-            print("❌ Error: Ingrese un número válido.")
+            print("Error: Ingrese un número válido.")
 
 
 # ============================================
@@ -631,7 +631,7 @@ def main():
 
     # Cargar historial al iniciar
     cargar_historial_archivo()
-    print("\n✅ Historial cargado desde archivo.")
+    print("\nHistorial cargado desde archivo.")
 
     continuar = True
 
@@ -656,18 +656,18 @@ def main():
             confirmacion = input("\n¿Está seguro de limpiar el historial? (s/n): ")
             if confirmacion.lower() == "s":
                 limpiar_historial()
-                print("✅ Historial limpiado.")
+                print("Historial limpiado.")
 
         elif opcion == "6":
-            print("\n💾 Guardando historial...")
+            print("\nGuardando historial...")
             guardar_historial_archivo()
-            print("✅ Historial guardado en datos/historial.txt")
+            print("Historial guardado en datos/historial.txt")
             print("\n¡Gracias por usar la Calculadora Multifuncional!")
             print("¡Hasta pronto! 👋")
             continuar = False
 
         else:
-            print("\n❌ Opción inválida. Por favor seleccione 1-6.")
+            print("\nOpción inválida. Por favor seleccione 1-6.")
 
     print("\nPrograma terminado.")
 
