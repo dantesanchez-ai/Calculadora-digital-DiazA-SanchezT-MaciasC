@@ -303,17 +303,18 @@ def agregar_al_historial(operacion, num1, num2, resultado):
     """
     global historial
 
-    # TODO: Implementar
-    # 1. Crear string con formato: "operación: num1 op num2 = resultado"
-    # 2. Agregar al final de la lista historial
-    # 3. Si historial tiene más de 10 elementos, eliminar el primero
-
-    # Ejemplo de formato:
-    # fecha_hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    # entrada = f"{fecha_hora} | {operacion}: {num1} + {num2} = {resultado}"
-    # historial.append(entrada)
-
-    pass
+    # Obtener fecha y hora actual
+    fecha_hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    # Crear entrada formateada
+    entrada = f"{fecha_hora} | {operacion}: {num1} + {num2} = {resultado}"
+    
+    # Agregar al historial
+    historial.append(entrada)
+    
+    # Limitar historial a 10 elementos (eliminar el más antiguo si excede)
+    if len(historial) > 10:
+        historial.pop(0)
 
 
 def mostrar_historial():
@@ -322,12 +323,18 @@ def mostrar_historial():
     """
     global historial
 
-    # TODO: Implementar
-    # 1. Verificar si historial está vacío
-    # 2. Si está vacío, mostrar mensaje
-    # 3. Si no, iterar sobre historial y mostrar cada operación numerada
-
-    pass
+    print("\n" + "="*70)
+    print("HISTORIAL DE OPERACIONES".center(70))
+    print("="*70)
+    
+    if not historial:
+        print("\n📭 El historial está vacío.")
+    else:
+        print(f"\nTotal de operaciones: {len(historial)}\n")
+        for indice, operacion in enumerate(historial, 1):
+            print(f"{indice:2}. {operacion}")
+    
+    print("\n" + "="*70)
 
 
 def limpiar_historial():
@@ -335,10 +342,7 @@ def limpiar_historial():
     Limpia el historial de operaciones.
     """
     global historial
-
-    # TODO: Implementar
-    # Vaciar la lista historial
-    pass
+    historial.clear()
 
 
 # ============================================
@@ -351,21 +355,14 @@ def guardar_historial_archivo():
     """
     global historial
 
-    # TODO: Implementar
-    # 1. Crear carpeta "datos" si no existe (usar os.makedirs())
-    # 2. Abrir archivo "datos/historial.txt" en modo escritura ("w")
-    # 3. Escribir cada línea del historial al archivo
-    # 4. Cerrar archivo
-
-    # Ejemplo:
-    # if not os.path.exists("datos"):
-    #     os.makedirs("datos")
-    #
-    # with open("datos/historial.txt", "w") as archivo:
-    #     for linea in historial:
-    #         archivo.write(linea + "\n")
-
-    pass
+    # Crear carpeta "datos" si no existe
+    if not os.path.exists("datos"):
+        os.makedirs("datos")
+    
+    # Abrir archivo en modo escritura
+    with open("datos/historial.txt", "w", encoding="utf-8") as archivo:
+        for linea in historial:
+            archivo.write(linea + "\n")
 
 
 def cargar_historial_archivo():
@@ -374,15 +371,17 @@ def cargar_historial_archivo():
     """
     global historial
 
-    # TODO: Implementar
-    # 1. Verificar si el archivo existe (os.path.exists())
-    # 2. Si existe:
-    #    - Abrir archivo en modo lectura ("r")
-    #    - Leer todas las líneas
-    #    - Agregar cada línea (sin \n) a la lista historial
-    # 3. Si no existe, no hacer nada
-
-    pass
+    # Verificar si el archivo existe
+    if os.path.exists("datos/historial.txt"):
+        try:
+            with open("datos/historial.txt", "r", encoding="utf-8") as archivo:
+                for linea in archivo:
+                    # Remover saltos de línea y agregar al historial
+                    linea_limpia = linea.strip()
+                    if linea_limpia:  # Solo agregar si la línea no está vacía
+                        historial.append(linea_limpia)
+        except Exception as e:
+            print(f"⚠️ Error al cargar historial: {e}")
 
 
 # ============================================
