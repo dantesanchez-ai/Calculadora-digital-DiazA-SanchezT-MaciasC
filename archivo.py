@@ -286,6 +286,24 @@ def kilobytes_a_bytes(kb):
     """Convierte kilobytes a bytes."""
     return kb * 1024
 
+def celsius_a_fahrenheit(c):
+    return (c * 9/5) + 32
+
+def celsius_a_kelvin(c):
+    return c + 273.15
+
+def fahrenheit_a_celsius(f):
+    return (f - 32) * 5/9
+
+def fahrenheit_a_kelvin(f):
+    return (f - 32) * 5/9 + 273.15
+
+def kelvin_a_celsius(k):
+    return k - 273.15
+
+def kelvin_a_fahrenheit(k):
+    return (k - 273.15) * 9/5 + 32
+
 
 # ============================================
 # SECCIÓN 4: GESTIÓN DE HISTORIAL (Estudiante 3)
@@ -437,9 +455,9 @@ def mostrar_menu_principal():
     print("1. Calculadora Básica")
     print("2. Conversor de Unidades de Datos")
     print("3. Calculadora de Sistemas Numéricos")
-    print("4. Ver Historial")
-    print("5. Limpiar Historial")
-    print("6. Salir")
+    print("4. Conversor de Temperatura")  
+    print("6. Limpiar Historial")         
+    print("7. Salir")                     
     print("-"*60)
 
 
@@ -613,6 +631,50 @@ def menu_sistemas_numericos():
         # Guardamos en el historial
         agregar_al_historial("Hex -> Dec", texto_hex.upper(), 0, resultado)
 
+def menu_conversor_temperatura():
+    """Menú y lógica del conversor de temperatura"""
+    print("\n--- CONVERSOR DE TEMPERATURA ---")
+    print("1. Celsius a Fahrenheit")
+    print("2. Celsius a Kelvin")
+    print("3. Fahrenheit a Celsius")
+    print("4. Fahrenheit a Kelvin")
+    print("5. Kelvin a Celsius")
+    print("6. Kelvin a Fahrenheit")
+    print("7. Volver al menú principal")
+
+    opcion = input("\nSeleccione operación: ")
+    if opcion == "7": return
+    
+    if opcion not in ["1", "2", "3", "4", "5", "6"]:
+        print("\n Error: Opción inválida.")
+        return
+
+    valor = validar_numero("Ingrese la temperatura a convertir: ")
+
+    if opcion == "1":
+        res = celsius_a_fahrenheit(valor)
+        print(f"\n {valor}°C equivalen a {res:.2f}°F")
+        agregar_al_historial("°C -> °F", valor, 0, res)
+    elif opcion == "2":
+        res = celsius_a_kelvin(valor)
+        print(f"\n {valor}°C equivalen a {res:.2f}K")
+        agregar_al_historial("°C -> K", valor, 0, res)
+    elif opcion == "3":
+        res = fahrenheit_a_celsius(valor)
+        print(f"\n {valor}°F equivalen a {res:.2f}°C")
+        agregar_al_historial("°F -> °C", valor, 0, res)
+    elif opcion == "4":
+        res = fahrenheit_a_kelvin(valor)
+        print(f"\n {valor}°F equivalen a {res:.2f}K")
+        agregar_al_historial("°F -> K", valor, 0, res)
+    elif opcion == "5":
+        res = kelvin_a_celsius(valor)
+        print(f"\n {valor}K equivalen a {res:.2f}°C")
+        agregar_al_historial("K -> °C", valor, 0, res)
+    elif opcion == "6":
+        res = kelvin_a_fahrenheit(valor)
+        print(f"\n {valor}K equivalen a {res:.2f}°F")
+        agregar_al_historial("K -> °F", valor, 0, res)
         
 # ============================================
 # PROGRAMA PRINCIPAL
@@ -638,7 +700,7 @@ def main():
     while continuar:
         mostrar_menu_principal()
 
-        opcion = input("\nSeleccione una opción (1-6): ")
+        opcion = input("\nSeleccione una opción (1-7): ")
 
         if opcion == "1":
             menu_calculadora_basica()
@@ -650,15 +712,18 @@ def main():
             menu_sistemas_numericos()
 
         elif opcion == "4":
-            mostrar_historial()
+            menu_conversor_temperatura() 
 
         elif opcion == "5":
+            mostrar_historial()          
+
+        elif opcion == "6":
             confirmacion = input("\n¿Está seguro de limpiar el historial? (s/n): ")
             if confirmacion.lower() == "s":
                 limpiar_historial()
                 print(" Historial limpiado.")
 
-        elif opcion == "6":
+        elif opcion == "7":               
             print("\n Guardando historial...")
             guardar_historial_archivo()
             print(" Historial guardado en datos/historial.txt")
@@ -667,8 +732,7 @@ def main():
             continuar = False
 
         else:
-            print("\n Opción inválida. Por favor seleccione 1-6.")
-
+            print("\n Opción inválida. Por favor seleccione 1-7.") 
     print("\nPrograma terminado.")
 
 
