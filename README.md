@@ -1,5 +1,5 @@
-Proyecto de Jorge Días, Dante Sánchez y Luis Macías para programación II en python. Creatividad Digital, CUGDL
-# [Nombre del Proyecto]
+Proyecto de Jorge Díaz, Dante Sánchez y Luis Macías para programación II en python. Creatividad Digital, CUGDL
+# [CALCULADORA DIGITAL]
 
 ![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
