@@ -482,10 +482,8 @@ def menu_calculadora_basica():
     num1 = validar_numero("Ingrese el primer número: ")
     num2 = validar_numero("Ingrese el segundo número: ")
 
-    # TODO: Implementar lógica según opción
     # - Si opcion == "1": resultado = sumar(num1, num2)
     # - Si opcion == "2": resultado = restar(num1, num2)
-    # - etc.
     # - Mostrar resultado
     # - Llamar a agregar_al_historial()
     if opcion == "1":
