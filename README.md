@@ -20,9 +20,10 @@ Este proyecto fue desarrollado como parte del curso de Programación en Python e
 
 ## ✨ Características
 
-- ✅ [Característica 1]
-- ✅ [Característica 2]
-- ✅ [Característica 3]
+- ✅ Calculadora básica
+- ✅ Conversor de Unidades de Datos
+- ✅ Calculadora de sistemas numéricos
+- ✅ Conversor de temperatura
 - ✅ Sistema de historial/registros
 - ✅ Persistencia de datos (archivos TXT/CSV)
 - ✅ Validación robusta de entradas
@@ -61,84 +62,41 @@ proyecto/
 ├── README.md
 ├── archivo.py
 ├── datos/
-│   ├── [archivo_datos].txt
-│   └── [archivo_ejemplo].csv
+│   ├── historial.txt
 ├── .gitignore
 └── ejemplos/
     └── screenshots/
-```
-
-## 📖 Ejemplos de Uso
-
-### Ejemplo 1: [Operación básica]
-```
-[Mostrar ejemplo de output del programa]
-```
-
-### Ejemplo 2: [Otra operación]
-```
-[Mostrar ejemplo de output]
 ```
 
 ## 📊 Datos
 
 El programa utiliza los siguientes archivos de datos:
 
-- `datos/[archivo].txt` - [Descripción de qué contiene]
-- `datos/[archivo].csv` - [Descripción con formato: campo1,campo2,campo3]
+- `datos/historial.txt` - [Guarda las últimas 10 operaciones]
 
 ### Formato de datos:
 
-**Archivo TXT:**
-```
-línea1 con formato específico
-línea2 con formato específico
-```
-
 **Archivo CSV:**
-```csv
-campo1,campo2,campo3,campo4
-valor1,valor2,valor3,valor4
+```Fecha y hora de operación | Tipo de operación: Datos ingresados = Resultado calculado
 ```
 
 ## 🎯 Funcionalidades Principales
 
-### 1. [Funcionalidad 1]
-Descripción de la funcionalidad y cómo usarla.
+### 1. Calculadora Básica
+Permite elegir entre suma, resta, multiplicación, división, módulos, potencias o volver al menú principal.
+Seleccionar la funcionalidad e ingresar los números a operar.
 
-### 2. [Funcionalidad 2]
-Descripción de la funcionalidad y cómo usarla.
+### 2. Conversor de Unidades de Datos
+Convierte Bytes a Kilobytes y viceversa. Convierte Kilobytes a Megabytes y viceversa. Convierte Gigabytes a Megabytes y viceversa.
+Seleccionar la funcionalidad e ingresar la cifra a convertir.
 
-### 3. [Funcionalidad 3]
-Descripción de la funcionalidad y cómo usarla.
+### 3. Calculadora de Sistemas Numéricos
+Convierte Decimales a Binarios y a Hexadecimales y viceversa.
+Seleccionar la funcionalidad e ingresar la cifra a convertir.
 
-## 📝 Documentación del Código
-
-Todas las funciones están documentadas con docstrings siguiendo el estilo Google:
-
-```python
-def nombre_funcion(parametro1, parametro2):
-    """
-    Breve descripción de lo que hace la función.
-
-    Args:
-        parametro1 (tipo): Descripción del parámetro
-        parametro2 (tipo): Descripción del parámetro
-
-    Returns:
-        tipo: Descripción de lo que retorna
-    """
-    # implementación
-```
-
-## 🧪 Casos de Prueba
-
-### Suite de Pruebas Básicas
-
-| Función | Input | Expected Output | Status |
-|---------|-------|----------------|--------|
-| `funcion1(x, y)` | x, y | resultado | ✓ |
-| `funcion2(x)` | x | resultado | ✓ |
+### 4. Conversor de Temperatura
+Convierte temperaturas en grados Celsius a Fahrenheit y a Kelvin y viceversa. Convierte grados Fahrenheit a Kelvin y viceversa.
+Seleccionar la funcionalidad e ingresar la temperatura a convertir. 
 
 ## 🗂️ Estructura del Código
 
@@ -147,19 +105,18 @@ def nombre_funcion(parametro1, parametro2):
 1. **Gestión de Archivos** - Funciones para cargar/guardar datos
 2. **Funciones de Cálculo** - Lógica principal del programa
 3. **Interfaz de Usuario** - Menús y validación
-4. **Sistema de [característica]** - [Descripción]
 
 ## 🤝 Contribuciones
 
 Este es un proyecto académico. Las contribuciones fueron divididas de la siguiente manera:
 
-- **[Jorge Díaz Abarca]** (40%): [Desarrollo de funciones principales para el funcionamiento de la calculadora]
-- **[Dante J. Sánchez Troncozo]** (30%): [Guardado de datos en historial, gestión de archivos y README]
-- **[Luis I. Macías Cejudo]** (30%): [Funcionalidades adicionales y ejemplos de uso]
+- **[Jorge Díaz Abarca]** (35%): [Desarrollo de funciones principales para el funcionamiento de la calculadora]
+- **[Dante J. Sánchez Troncozo]** (35%): [Guardado de datos en historial, gestión de archivos y README]
+- **[Luis I. Macías Cejudo]** (30%): [Funcionalidades adicionales y testing]
 
 ## 📜 Licencia
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
 
 ## 🎓 Contexto Académico
 
@@ -178,4 +135,4 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 
 ⭐ Si este proyecto te fue útil, ¡considera darle una estrella en GitHub!
 
-**Desarrollado con ❤️ en Python**
+**Desarrollado en Python**
