@@ -186,7 +186,6 @@ def binario_a_decimal(binario):
     Returns:
         int: Número decimal
     """
-    Inicializar decimal = 0
     decimal = 0
     longitud = len(binario)
     #  Para cada dígito en binario (de derecha a izquierda):
