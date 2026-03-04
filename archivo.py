@@ -161,7 +161,6 @@ def decimal_a_hexadecimal(numero):
     
     caracteres_hex = "0123456789ABCDEF"
     resultado = ""
-    # TODO: Implementar
     # Pueden usar el método similar a binario
     # Recordar: 10=A, 11=B, 12=C, 13=D, 14=E, 15=F
 
@@ -187,18 +186,16 @@ def binario_a_decimal(binario):
     Returns:
         int: Número decimal
     """
-    # TODO: Implementar
-    # Algoritmo:
-    # 1. Inicializar decimal = 0
+    Inicializar decimal = 0
     decimal = 0
     longitud = len(binario)
-    # 2. Para cada dígito en binario (de derecha a izquierda):
+    #  Para cada dígito en binario (de derecha a izquierda):
     for posicion in range(longitud):
     #    - decimal += dígito * (2 ^ posición)
         digito = int(binario[-(posicion + 1)])
         # Aplicamos la fórmula multiplicando por 2 elevado a la posición actual
         decimal += digito * (2 ** posicion)
-    # 3. Retornar decimal
+    # Retornar decimal
     return decimal
 
 
